@@ -1,6 +1,4 @@
-package com.chat.paylorad;
-
-import java.time.LocalDateTime;
+package com.chat.payload;
 
 public class MessageRequest {
     private String content;
@@ -38,5 +36,17 @@ public class MessageRequest {
 
     public void setRoomId(String roomId) {
         this.roomId = roomId;
+    }
+
+    public static class RoomRequest {
+        private String roomId;
+
+        public String getRoomId() {
+            return roomId;
+        }
+
+        public void setRoomId(String roomId) {
+            this.roomId = roomId;
+        }
     }
 }

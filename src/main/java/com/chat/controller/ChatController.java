@@ -2,7 +2,7 @@ package com.chat.controller;
 
 import com.chat.entities.Message;
 import com.chat.entities.Room;
-import com.chat.paylorad.MessageRequest;
+import com.chat.payload.MessageRequest;
 import com.chat.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
