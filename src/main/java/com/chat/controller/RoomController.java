@@ -2,7 +2,7 @@ package com.chat.controller;
 
 import com.chat.entities.Message;
 import com.chat.entities.Room;
-import com.chat.payload.MessageRequest;
+import com.chat.payload.RoomRequest;
 import com.chat.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -19,7 +19,7 @@ public class RoomController {
     private RoomService roomService;
     // create
     @PostMapping
-    public ResponseEntity<?> createRoom(@RequestBody MessageRequest.RoomRequest request){
+    public ResponseEntity<?> createRoom(@RequestBody RoomRequest request){
         String roomId = request.getRoomId();
         // room already exist
         if (roomService.findByRoomID(roomId) !=null){
