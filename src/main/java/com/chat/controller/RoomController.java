@@ -2,6 +2,7 @@ package com.chat.controller;
 
 import com.chat.entities.Message;
 import com.chat.entities.Room;
+import com.chat.request.RoomRequest;
 import com.chat.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,14 +19,15 @@ public class RoomController {
     private RoomService roomService;
     // create
     @PostMapping
-    public ResponseEntity<?> createRoom(@RequestBody  String roomID){
+    public ResponseEntity<?> createRoom(@RequestBody RoomRequest request){
+        String roomId = request.getRoomId();
         // room already exist
-        if (roomService.findByRoomID(roomID)!=null){
+        if (roomService.findByRoomID(roomId) !=null){
             return ResponseEntity.badRequest().body("Room already exist");
         }
         // new room
         Room room = new Room();
-        room.setRoomId(roomID);
+        room.setRoomId(roomId);
         Room savedRoom = roomService.createRoom(room);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedRoom);
     }
